@@ -1,5 +1,6 @@
 import React from "react";
 import { RuneSystem } from "../classes/RuneSystem";
+import { Select } from "./Select";
 
 export interface IDropdown {
   options: RuneSystem[];
@@ -8,15 +9,10 @@ export interface IDropdown {
 
 export const Dropdown = ({ options, onChange }: IDropdown) => {
   return (
-    <select
-      className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-      onChange={event => onChange(event)}
-    >
-      {options.map(({ name }) => (
-        <option value={name} key={name}>
-          {name}
-        </option>
-      ))}
-    </select>
+    <div className="block w-full">
+      <Select
+        options={options.map(o => ({ name: o.name, value: o.name }))}
+      ></Select>
+    </div>
   );
 };
