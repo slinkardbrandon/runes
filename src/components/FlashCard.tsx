@@ -1,4 +1,4 @@
-import React from "react";
+import React, { DetailedHTMLProps, ImgHTMLAttributes } from "react";
 import { Rune } from "../classes/Rune";
 
 export interface IFlashCard {
@@ -6,14 +6,24 @@ export interface IFlashCard {
 }
 
 export const FlashCard = (props: IFlashCard) => {
-  const [flipped, setFlipped] = React.useState(true);
   const { rune } = props;
+  const [flipped, setFlipped] = React.useState(false);
 
-  console.log(rune);
+  const frontStyles = {
+    display: flipped ? "none" : undefined
+  };
+  const backStyles = {
+    display: flipped ? undefined : "none"
+  };
 
   return (
-    <div className="">
-      <img alt={rune.name} src={rune.imageUrl}></img>
+    <div
+      className="bg-white border-gray-700 m-5 p-5 pt-12 pb-12 flex justify-center hover:shadow-xl cursor-pointer"
+      aria-role="button"
+      onClick={() => setFlipped(!flipped)}
+    >
+      <img style={frontStyles} alt={rune.name} src={rune.imageUrl}></img>
+      <div style={backStyles}>back</div>
     </div>
   );
 };

@@ -25,15 +25,13 @@ function App() {
     <div className="App h-full">
       <header className="flex p-5 align-middle bg-green-900 text-white justify-center">
         <h1 role="banner" className="flex flex-grow font-bold items-center">
-          Rune Study
+          RuneStudy
         </h1>
         <div>
           <Dropdown options={runeSystems} onChange={handleDropdownChange} />
         </div>
       </header>
-      <div className="border-solid pt-5 bg-gray-100 h-full">
-        <FlashCardController system={system} />
-      </div>
+      <FlashCardController system={system} />
     </div>
   );
 }
