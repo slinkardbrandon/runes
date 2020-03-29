@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { RuneSystem } from "../classes/RuneSystem";
-import { getRandomRune } from "../functions/getRandomRune";
 import { Rune } from "../classes/Rune";
-import { FlashCard } from "./FlashCard";
-import SwipeableViews from "react-swipeable-views";
+import { FlashCard } from "./FlashCard/FlashCard";
 import { shuffleArray } from "../functions/shuffleArray";
 
 export interface IFlashCardController {
@@ -11,14 +9,22 @@ export interface IFlashCardController {
 }
 
 export const FlashCardController = ({ system }: IFlashCardController) => {
-  // const [activeRune, setActiveRune] = useState<Rune>(getRandomRune(system));
   const [runes] = useState<Rune[]>(() => shuffleArray(system.runes));
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const rune = runes[activeIndex];
+
+  const handlePrevious = () => {};
+  const handleNext = () => {
+    if (activeIndex === runes.length - 1) {
+      setActiveIndex(0);
+    } else {
+      setActiveIndex(activeIndex + 1);
+    }
+  };
 
   return (
-    <SwipeableViews>
-      <div className="border-solid pt-5 bg-gray-200 h-full">
-        <FlashCard rune={runes[0]} />
-      </div>
-    </SwipeableViews>
+    <div className="p-4 bg-gray-200 h-full">
+      <FlashCard key={rune.name} rune={rune} />
+    </div>
   );
 };
