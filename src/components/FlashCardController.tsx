@@ -3,6 +3,7 @@ import { RuneSystem } from "../classes/RuneSystem";
 import { Rune } from "../classes/Rune";
 import { FlashCard } from "./FlashCard/FlashCard";
 import { shuffleArray } from "../functions/shuffleArray";
+import { Button } from "./Button";
 
 export interface IFlashCardController {
   system: RuneSystem;
@@ -25,6 +26,10 @@ export const FlashCardController = ({ system }: IFlashCardController) => {
   return (
     <div className="p-4 bg-gray-200 h-full">
       <FlashCard key={rune.name} rune={rune} />
+      <span>
+        <Button variant="outlined" text="Back" />
+        <Button variant="primary" text="Next" />
+      </span>
     </div>
   );
 };
