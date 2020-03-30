@@ -1,7 +1,9 @@
 import { Rune } from "./Rune";
-import { RuneSystem } from "./RuneSystem";
+import { RuneSystem, IRuneSystem } from "./RuneSystem";
 
-export class ElderFuthark extends RuneSystem {
+export class ElderFuthark extends RuneSystem implements IRuneSystem {
+  public name: string = "Elder Futhark";
+
   constructor() {
     super("Elder Futhark", [
       new Rune(
