@@ -52,10 +52,11 @@ export const FlashCardController = () => {
     <div className="p-4 bg-gray-200 h-full">
       <span className="flex flex-grow">
         <h1 className="flex w-full flex-grow pb-4 text-2xl">Flash Cards</h1>
-        <span className="block w-4/5">
+        <span className="block">
           <Select
             options={runeSystems.map(o => ({ name: o.name, value: o.name }))}
             onChange={handleDropdownChange}
+            wrapperClasses={["w-40"]}
           ></Select>
         </span>
       </span>
