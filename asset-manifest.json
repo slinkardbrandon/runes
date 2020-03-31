@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/runestudy/static/css/main.97e3dbe5.chunk.css",
+    "main.js": "/runestudy/static/js/main.095108ab.chunk.js",
+    "main.js.map": "/runestudy/static/js/main.095108ab.chunk.js.map",
+    "runtime-main.js": "/runestudy/static/js/runtime-main.1e2731ae.js",
+    "runtime-main.js.map": "/runestudy/static/js/runtime-main.1e2731ae.js.map",
+    "static/js/2.c0cf46c4.chunk.js": "/runestudy/static/js/2.c0cf46c4.chunk.js",
+    "static/js/2.c0cf46c4.chunk.js.map": "/runestudy/static/js/2.c0cf46c4.chunk.js.map",
+    "index.html": "/runestudy/index.html",
+    "precache-manifest.7dc92437347431032be59cba94b7d1ef.js": "/runestudy/precache-manifest.7dc92437347431032be59cba94b7d1ef.js",
+    "service-worker.js": "/runestudy/service-worker.js",
+    "static/css/main.97e3dbe5.chunk.css.map": "/runestudy/static/css/main.97e3dbe5.chunk.css.map",
+    "static/js/2.c0cf46c4.chunk.js.LICENSE.txt": "/runestudy/static/js/2.c0cf46c4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1e2731ae.js",
+    "static/js/2.c0cf46c4.chunk.js",
+    "static/css/main.97e3dbe5.chunk.css",
+    "static/js/main.095108ab.chunk.js"
+  ]
+}
