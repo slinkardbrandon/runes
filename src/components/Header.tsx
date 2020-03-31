@@ -8,7 +8,7 @@ export const Header = () => {
           <img
             src="https://arbor-software.nyc3.digitaloceanspaces.com/runes/rune-study-logo-white-130x200.png"
             alt="Rune Study Logo"
-            className="h-10 mr-1"
+            className="h-10 mr-2"
           />
 
           <span className="font-semibold text-xl tracking-tight">
