@@ -15,7 +15,7 @@
   "scripts": {
     "build": "npm run build:css && react-scripts build",
     "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
-    "check": "npm run check:lint && npm run prettier:check && npm run check:build",
+    "check": "npm run check:lint && npm run check:prettier && npm run check:build",
     "check:build": "tsc --noEmit",
     "check:lint": "eslint \"{.,,{src,test,.vscode}/**/}*.@(ts|tsx|json|yml|yaml)\"",
     "check:prettier": "prettier \"{.,,{src,test,.vscode}/**/}*.@(ts|js|json|yml|yaml)\" --list-different",
