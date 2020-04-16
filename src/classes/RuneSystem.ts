@@ -1,4 +1,4 @@
-import { Rune } from "./Rune";
+import { Rune } from './Rune';
 
 export interface IRuneSystem {
   name: string;

@@ -1,6 +1,6 @@
-import { RuneSystem } from "../classes/RuneSystem";
-import { getNumberBetween } from "./getNumberBetween";
-import { Rune } from "../classes/Rune";
+import { RuneSystem } from '../classes/RuneSystem';
+import { getNumberBetween } from './getNumberBetween';
+import { Rune } from '../classes/Rune';
 
 export const getRandomRune = (runeSystem: RuneSystem): Rune => {
   /**
