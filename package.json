@@ -13,7 +13,7 @@
     "tailwindcss": "^1.2.0"
   },
   "scripts": {
-    "build": "npm run build:css && react-scripts build",
+    "build": "CI=true npm run build:css && react-scripts build",
     "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
     "check": "npm run check:lint && npm run check:prettier && npm run check:build",
     "check:build": "tsc --noEmit",
