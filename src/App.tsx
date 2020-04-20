@@ -1,11 +1,12 @@
-import React from "react";
-import "./App.css";
-import "./assets/main.css";
-import { RuneSystem } from "./classes/RuneSystem";
-import { ElderFuthark } from "./classes/ElderFuthark";
-import { FlashCardController } from "./components/FlashCardController";
-import { RuneSystemContext } from "./RuneSystemContext";
-import { Header } from "./components/Header";
+import React from 'react';
+import './App.css';
+import './assets/main.css';
+import { RuneSystem } from './classes/RuneSystem';
+import { ElderFuthark } from './classes/ElderFuthark';
+import { FlashCardController } from './components/FlashCardController';
+import { RuneSystemContext } from './RuneSystemContext';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 
 function App() {
   const runeSystems: RuneSystem[] = [new ElderFuthark()];
@@ -22,6 +23,7 @@ function App() {
         </header> */}
         <FlashCardController />
       </div>
+      <Footer />
     </RuneSystemContext.Provider>
   );
 }
