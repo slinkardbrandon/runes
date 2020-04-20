@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlashCard } from './FlashCard/FlashCard';
 import { Button } from './Button';
 import { Rune } from '../classes/Rune';
@@ -9,9 +9,14 @@ interface IFlashCardControllerProps {
 
 export const FlashCardController = ({ runes }: IFlashCardControllerProps) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  useEffect(() => {
+    // If the rune set changes, reset to starting point (index 0)
+    setActiveIndex(0);
+  }, [runes]);
+
   const rune = runes[activeIndex];
   const runeCount = runes.length - 1;
-
   const handlePrevious = () => {
     if (activeIndex === 0) {
       setActiveIndex(runeCount);
