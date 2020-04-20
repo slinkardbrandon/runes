@@ -12,8 +12,8 @@ export const FlashCardBack = ({ flipped, rune }: IFlashCardBack) => {
   };
 
   return (
-    <div style={styles} className="font-semibold text-xl">
-      {rune.name}
+    <div style={styles} className=" text-xl text-center">
+      <span className="font-semibold text-2xl">{rune.name}</span>
       <hr />
       <span>Aett: {rune.aett?.name}</span>
     </div>
