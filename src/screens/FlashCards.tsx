@@ -2,7 +2,6 @@ import React from 'react';
 import { RuneSystemContext } from '../RuneSystemContext';
 import { Select } from '../components/Select';
 import { RuneSystem } from '../classes/RuneSystem';
-import { Aettir } from '../classes/aettir/Aettir';
 import { AettOfFreya } from '../classes/aettir/Freya';
 import { AettOfHeimdall } from '../classes/aettir/Heimdall';
 import { AettOfTiwaz } from '../classes/aettir/Tiwaz';
@@ -12,10 +11,17 @@ import { FlashCardController } from '../components/FlashCardController';
 import { getRunesForAett } from '../functions/getRunesForAett';
 import { Gear } from '../components/Gear';
 import { Expando } from '../components/Expando';
+import { useCookie } from '../hooks/useCookie';
 
 export const FlashCards = () => {
+  const aettOfFreya = new AettOfFreya();
+  const aettOfHeimdall = new AettOfHeimdall();
+  const aettOfTiwaz = new AettOfTiwaz();
+
+  const [aett, setAett] = useCookie('aett', 'all');
+
   const runeSystems = React.useContext(RuneSystemContext);
-  const [aett, setAett] = React.useState<Aettir | 'all'>('all');
+  // const [aett, setAett] = React.useState<Aettir | 'all'>('all');
   const [system] = React.useState<RuneSystem>(
     runeSystems.find(system => system.name === 'Elder Futhark') as RuneSystem,
   );
@@ -25,36 +31,32 @@ export const FlashCards = () => {
   const [settingsExpanded, setSettingsExpanded] = React.useState(false);
 
   React.useEffect(() => {
-    if (aett === 'all') {
-      setRunes(shuffleArray(system.runes));
-    } else {
-      setRunes(shuffleArray(getRunesForAett(system, aett.name)));
+    switch (aett) {
+      case aettOfFreya.name:
+      case aettOfHeimdall.name:
+      case aettOfTiwaz.name:
+        return setRunes(shuffleArray(getRunesForAett(system, aett)));
+      case 'all':
+      default:
+        return setRunes(shuffleArray(system.runes));
     }
-  }, [system, system.runes, aett]);
-
-  // const elderFuthark = new ElderFuthark();
-  const aettOfFreya = new AettOfFreya();
-  const aettOfHeimdall = new AettOfHeimdall();
-  const aettOfTiwaz = new AettOfTiwaz();
-
-  // const handleRuneSystemChange = (event: React.ChangeEvent<any>) => {
-  //   switch (event.target.value) {
-  //     // since there is only one rune system currently, these can both fall back
-  //     // to the elderFuthark option
-  //     case elderFuthark.name:
-  //     default:
-  //       return setSystem(elderFuthark);
-  //   }
-  // };
+  }, [
+    system,
+    system.runes,
+    aett,
+    aettOfFreya.name,
+    aettOfHeimdall.name,
+    aettOfTiwaz.name,
+  ]);
 
   const handleAettirChange = (event: React.ChangeEvent<any>) => {
     switch (event.target.value) {
       case aettOfFreya.name:
-        return setAett(aettOfFreya);
+        return setAett(aettOfFreya.name);
       case aettOfHeimdall.name:
-        return setAett(aettOfHeimdall);
+        return setAett(aettOfHeimdall.name);
       case aettOfTiwaz.name:
-        return setAett(aettOfTiwaz);
+        return setAett(aettOfTiwaz.name);
       default:
         return setAett('all');
     }
@@ -68,19 +70,6 @@ export const FlashCards = () => {
       </span>
       <Expando expanded={settingsExpanded}>
         <div className="bg-white p-5 mb-3">
-          {/*
-              If I ever implement a second rune system, it should be easy enough to
-              re-enable some of the code here, but for now I'll leave it commented since
-              it will all get thrown away during webpack minification anyways
-          */}
-          {/* <div className="my-3">
-            <label className="block">Rune System</label>
-            <Select
-              options={runeSystems.map(o => ({ name: o.name, value: o.name }))}
-              onChange={handleRuneSystemChange}
-              wrapperClasses={['w-40']}
-            ></Select>
-          </div> */}
           <div className="my-3">
             <label className="block">Aett</label>
             <Select
@@ -88,6 +77,7 @@ export const FlashCards = () => {
                 name: v,
                 value: v,
               }))}
+              value={aett}
               onChange={handleAettirChange}
               wrapperClasses={['w-40']}
             ></Select>
