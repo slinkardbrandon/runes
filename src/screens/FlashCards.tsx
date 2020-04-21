@@ -68,9 +68,11 @@ export const FlashCards = () => {
       </span>
       <Expando expanded={settingsExpanded}>
         <div className="bg-white p-5 mb-3">
-          {/* If I ever implement a second rune system, it should be easy enough to
+          {/*
+              If I ever implement a second rune system, it should be easy enough to
               re-enable some of the code here, but for now I'll leave it commented since
-              it will all get thrown away during webpack minification anyways */}
+              it will all get thrown away during webpack minification anyways
+          */}
           {/* <div className="my-3">
             <label className="block">Rune System</label>
             <Select
