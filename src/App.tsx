@@ -8,6 +8,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { FlashCards } from './screens/FlashCards';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { ElderFutharkScreen } from './screens/ElderFutharkScreen';
 
 function App() {
   const runeSystems: RuneSystem[] = [new ElderFuthark()];
@@ -23,6 +24,9 @@ function App() {
             <Switch>
               <Route path="/flash-cards">
                 <FlashCards />
+              </Route>
+              <Route path="/elder-futhark">
+                <ElderFutharkScreen />
               </Route>
               {/* Due to how react router handles pattern matching,
               the default route, commonly associated with "home" should live
