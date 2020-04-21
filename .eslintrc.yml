@@ -2,11 +2,11 @@ env:
   browser: true
   es6: true
 extends:
-  - "plugin:react/recommended"
+  - 'plugin:react/recommended'
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
-parser: "@typescript-eslint/parser"
+parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
     jsx: true
@@ -14,12 +14,12 @@ parserOptions:
   sourceType: module
 plugins:
   - react
-  - "react-hooks"
-  - "@typescript-eslint"
+  - 'react-hooks'
+  - '@typescript-eslint'
 rules: {
-    "no-unused-vars": "off", # Does not support types, interfaces, etc
-    "@typescript-eslint/no-unused-vars": ["error"], # an extension of no-unused-vars with typescript support
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "error",
-    "react/prop-types": "off", #we use typescript, not shitty prop types
+    'no-unused-vars': 'off', # Does not support types, interfaces, etc
+    '@typescript-eslint/no-unused-vars': ['error'], # an extension of no-unused-vars with typescript support
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
+    'react/prop-types': 'off', #we use typescript, not shitty prop types
   }
