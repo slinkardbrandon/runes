@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -11,12 +13,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
-    "tailwindcss": "^1.2.0"
+    "react-scripts": "3.4.1"
   },
   "scripts": {
-    "build": "CI=true npm run build:css && react-scripts build",
-    "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+    "build": "CI=true react-scripts build",
     "check": "npm run check:lint && npm run check:prettier && npm run check:build",
     "check:build": "tsc --noEmit",
     "check:lint": "eslint \"{.,,{src,test,.vscode}/**/}*.@(ts|tsx|json|yml|yaml)\"",
@@ -27,9 +27,8 @@
     "fix:lint": "npm run check:lint -- --fix",
     "fix:prettier": "npm run check:prettier -- --write",
     "predeploy": "npm run build",
-    "start": "npm run watch:css && react-scripts start",
-    "test": "react-scripts test",
-    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
+    "start": "react-scripts start",
+    "test": "react-scripts test"
   },
   "browserslist": {
     "production": [
