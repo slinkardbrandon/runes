@@ -17,22 +17,18 @@ function App() {
     <RuneSystemContext.Provider value={runeSystems}>
       <div style={{ minHeight: '100vh' }} className="bg-gray-200">
         <div className="App h-full flex flex-col">
-          <Router basename="/">
+          <Router basename="/" hashType="slash">
             <Header />
 
             {/* Routes live here */}
             <Switch>
-              <Route path={process.env.PUBLIC_URL + '/flash-cards'}>
-                <FlashCards />
-              </Route>
-              <Route path={process.env.PUBLIC_URL + '/elder-futhark'}>
-                <ElderFutharkScreen />
-              </Route>
+              <Route path="/flash-cards" component={FlashCards} />
+              <Route path="/elder-futhark" component={ElderFutharkScreen} />
               {/* Due to how react router handles pattern matching,
               the default route, commonly associated with "home" should live
               last, this is because the router accepts the first matching partial
               so that it can easily support sub-routes, etc. */}
-              <Route path={process.env.PUBLIC_URL + '/'}>
+              <Route exact path="/">
                 {/* TODO: Setup some wizard that asks for user input the
                 first time they use the website, store the data in a cookie
                 or local storage, then pull that data on the other pages. */}
