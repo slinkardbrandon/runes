@@ -9,6 +9,7 @@ import { Footer } from './components/Footer';
 import { FlashCards } from './screens/FlashCards';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { ElderFutharkScreen } from './screens/ElderFutharkScreen';
+import { Home } from './screens/Home';
 
 function App() {
   const runeSystems: RuneSystem[] = [new ElderFuthark()];
@@ -20,20 +21,10 @@ function App() {
           <Router basename="/" hashType="slash">
             <Header />
 
-            {/* Routes live here */}
             <Switch>
+              <Route exact path="/" component={() => <Home />} />
               <Route path="/flash-cards" component={FlashCards} />
               <Route path="/elder-futhark" component={ElderFutharkScreen} />
-              {/* Due to how react router handles pattern matching,
-              the default route, commonly associated with "home" should live
-              last, this is because the router accepts the first matching partial
-              so that it can easily support sub-routes, etc. */}
-              <Route exact path="/">
-                {/* TODO: Setup some wizard that asks for user input the
-                first time they use the website, store the data in a cookie
-                or local storage, then pull that data on the other pages. */}
-                <div>home</div>
-              </Route>
             </Switch>
           </Router>
         </div>

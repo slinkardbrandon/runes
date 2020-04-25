@@ -1,20 +1,23 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   return (
     <div>
       <nav className="flex items-center justify-between flex-wrap bg-green-800 p-6">
-        <div className="flex items-center flex-shrink-0 text-white mr-6">
-          <img
-            src="https://arbor-software.nyc3.digitaloceanspaces.com/runes/rune-study-logo-white-130x200.png"
-            alt="Rune Study Logo"
-            className="h-10 mr-2"
-          />
+        <Link to="/">
+          <div className="flex items-center flex-shrink-0 text-white mr-6">
+            <img
+              src="https://arbor-software.nyc3.digitaloceanspaces.com/runes/rune-study-logo-white-130x200.png"
+              alt="Rune Study Logo"
+              className="h-10 mr-2"
+            />
 
-          <span className="font-semibold text-xl tracking-tight">
-            RuneStudy
-          </span>
-        </div>
+            <span className="font-semibold text-xl tracking-tight">
+              RuneStudy
+            </span>
+          </div>
+        </Link>
         <div className="block lg:hidden">
           <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
             <svg
