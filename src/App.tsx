@@ -7,7 +7,7 @@ import { RuneSystemContext } from './RuneSystemContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { FlashCards } from './screens/FlashCards';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { ElderFutharkScreen } from './screens/ElderFutharkScreen';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
     <RuneSystemContext.Provider value={runeSystems}>
       <div style={{ minHeight: '100vh' }} className="bg-gray-200">
         <div className="App h-full flex flex-col">
-          <Router>
+          <Router basename="/">
             <Header />
 
             {/* Routes live here */}
