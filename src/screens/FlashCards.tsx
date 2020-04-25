@@ -12,8 +12,36 @@ import { getRunesForAett } from '../functions/getRunesForAett';
 import { Gear } from '../components/Gear';
 import { Expando } from '../components/Expando';
 import { useCookie } from '../hooks/useCookie';
+import {
+  Grid,
+  makeStyles,
+  createStyles,
+  Typography,
+  Theme,
+} from '@material-ui/core';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    container: {
+      padding: theme.spacing(3),
+      backgroundColor: '#edf2f7',
+      height: '100%',
+    },
+    expando: {
+      backgroundColor: '#fff',
+      padding: theme.spacing(5),
+      marginBottom: theme.spacing(3),
+    },
+    my3: {
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(3),
+    },
+  }),
+);
 
 export const FlashCards = () => {
+  const classes = useStyles();
+
   const aettOfFreya = new AettOfFreya();
   const aettOfHeimdall = new AettOfHeimdall();
   const aettOfTiwaz = new AettOfTiwaz();
@@ -63,23 +91,28 @@ export const FlashCards = () => {
   };
 
   return (
-    <div className="p-4 bg-gray-200 h-full">
-      <span className="flex flex-grow">
-        <h1 className="flex w-full flex-grow pb-4 text-2xl">Flash Cards</h1>
-        <Gear onClick={() => setSettingsExpanded(!settingsExpanded)} />
-      </span>
+    <div className={classes.container}>
+      <Grid container direction="row">
+        <Grid item xs={10}>
+          <Typography variant="h4" component="h1">
+            Flash Cards
+          </Typography>
+        </Grid>
+        <Grid item xs={2}>
+          <Gear onClick={() => setSettingsExpanded(!settingsExpanded)} />
+        </Grid>
+      </Grid>
       <Expando expanded={settingsExpanded}>
-        <div className="bg-white p-5 mb-3">
-          <div className="my-3">
-            <label className="block">Aett</label>
+        <div className={classes.expando}>
+          <div className={classes.my3}>
             <Select
+              label="Aett"
               options={['all', 'Freya', 'Heimdall', 'Tiwaz'].map(v => ({
                 name: v,
                 value: v,
               }))}
               value={aett}
               onChange={handleAettirChange}
-              wrapperClasses={['w-40']}
             ></Select>
           </div>
         </div>
