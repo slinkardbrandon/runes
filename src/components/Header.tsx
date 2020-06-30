@@ -10,6 +10,7 @@ import {
   Theme,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import { Logo } from '../Logo';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,11 +43,7 @@ export const Header = () => {
       <Toolbar className={classes.flex}>
         <Link to="/" className={classes.grow}>
           <div className={classes.primary}>
-            <img
-              src="https://arbor-software.nyc3.digitaloceanspaces.com/runes/rune-study-logo-white-130x200.png"
-              alt="Rune Study Logo"
-              className={classes.logo}
-            />
+            <Logo height={75} width={75} />
 
             <Typography variant="h6">RuneStudy</Typography>
           </div>
